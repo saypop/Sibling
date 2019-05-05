@@ -2,19 +2,29 @@
 
   "manifest_version": 2,
   "name": "Sibling",
-  "version": "0.0",
+  "version": "0.1",
 
-  "description": "Adds a red border to all webpages matching mozilla.org.",
+  "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
+  "homepage_url": "https://github.com/saypop/Sibling"
 
   "icons": {
     "48": "icons/siblings-48.png"
   },
 
-  "content_scripts": [
-    {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["sibling.js"]
-    }
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/beasts-32.png",
+    "default_title": "Beastify",
+    "default_popup": "popup/choose_beast.html"
+  },
+
+  "web_accessible_resources": [
+    "beasts/frog.jpg",
+    "beasts/turtle.jpg",
+    "beasts/snake.jpg"
   ]
 
 }
